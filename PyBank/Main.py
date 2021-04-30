@@ -3,7 +3,7 @@ import os
 
 # Module for reading CSV files
 import csv
-csvpath = os.path.join('/Users/karlaflores/Desktop/Excel Analysis - Kickstarted Campaigns - KF/Python----Challenge/PyBank/Resources/budget_data.csv')
+csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Resources/budget_data.csv')
 
 # Improved Reading using CSV module
 
@@ -21,3 +21,6 @@ with open(csvpath) as csvfile:
     # Read each row of data after the header
     for row in csvreader:
         print(row)
+
+print ("Financial Analysis\n")
+print ("----------------------------")
