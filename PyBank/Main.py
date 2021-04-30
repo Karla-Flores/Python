@@ -21,6 +21,13 @@ with open(csvpath) as csvfile:
     # Read each row of data after the header
     for row in csvreader:
         print(row)
+        
+
+
+
+        
 
 print ("Financial Analysis\n")
 print ("----------------------------")
+date =[]
+profit_losses =[]
