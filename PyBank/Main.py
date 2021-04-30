@@ -1,20 +1,11 @@
-# First we'll import the os module
-# This will allow us to create file paths across operating systems
+# First we'll import the os module and create file paths across operating systems
 import os
 
 # Module for reading CSV files
 import csv
+csvpath = os.path.join('/Users/karlaflores/Desktop/Excel Analysis - Kickstarted Campaigns - KF/Python----Challenge/PyBank/Resources/budget_data.csv')
 
-csvpath = os.path.join('/Users/karlaflores/Desktop/Excel Analysis - Kickstarted Campaigns - KF/Python----Challenge/PyPoll/Resources/election_data.csv')
-
-# # Method 1: Plain Reading of CSV files
-# with open(csvpath, 'r') as file_handler:
-#     lines = file_handler.read()
-#     print(lines)
-#     print(type(lines))
-
-
-# Method 2: Improved Reading using CSV module
+# Improved Reading using CSV module
 
 with open(csvpath) as csvfile:
 
