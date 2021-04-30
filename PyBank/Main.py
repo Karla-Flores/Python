@@ -25,14 +25,17 @@ with open(csvpath) as csvfile:
     Changes = []
     date = []
         
-    #Variables
+    #V ariables
     count = 0
 
     # Read each row of data after the header
     for row in csvreader:
         # Counts of months in csvreader
         count = count + 1
-
-print ("Financial Analysis\n")
-print ("----------------------------")
+        # Storage profit in list
+        profit.append(int(row[1]))
+        print (profit)
+        
+print ("Financial Analysis")
+print ("----------------------------\n")
 print ("Total Months: " + str(count))
