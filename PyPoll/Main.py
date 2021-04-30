@@ -3,7 +3,7 @@ import os
 
 # Module for reading CSV files
 import csv
-csvpath = os.path.join('/Users/karlaflores/Desktop/Excel Analysis - Kickstarted Campaigns - KF/Python----Challenge/PyPoll/Resources/election_data.csv')
+csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyPoll/Resources/election_data.csv')
 
 # Improved Reading using CSV module
 
