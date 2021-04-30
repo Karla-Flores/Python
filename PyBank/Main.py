@@ -18,16 +18,21 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
     print(f"CSV Header: {csv_header}")
 
+
+        
+    # Lists for storing
+    profit = []
+    Changes = []
+    date = []
+        
+    #Variables
+    count = 0
+
     # Read each row of data after the header
     for row in csvreader:
-        print(row)
-        
-
-
-
-        
+        # Counts of months in csvreader
+        count = count + 1
 
 print ("Financial Analysis\n")
 print ("----------------------------")
-date =[]
-profit_losses =[]
+print ("Total Months: " + str(count))
