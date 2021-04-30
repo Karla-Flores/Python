@@ -22,7 +22,7 @@ with open(csvpath) as csvfile:
         
     # Lists for storing
     profit = []
-    Changes = []
+    changes = []
     date = []
         
     #V ariables
@@ -34,7 +34,7 @@ with open(csvpath) as csvfile:
         count = count + 1
         # Storage profit in list
         profit.append(int(row[1]))
-        print (profit)
+    print (profit)
         
 print ("Financial Analysis")
 print ("----------------------------\n")
