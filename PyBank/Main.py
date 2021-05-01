@@ -29,6 +29,7 @@ with open(csvpath) as csvfile:
     count = 0
     total = 0
     i_profit = 0
+    t_changep = 0
 
     # Read each row of data after the header
     for row in csvreader:
@@ -40,19 +41,27 @@ with open(csvpath) as csvfile:
         Date.append(str(row[0]))
         # Sum of profit & losses
         total = total + int(row[1])
-        # Average of change
+        # Last profit value
         f_profit = int(row[1])
+        # Average of change / wrong
         m_change = f_profit - i_profit
         Change.append(m_change)
-print (Change)
-print (f_profit)
-print (m_change)
+        t_changep = t_changep + m_change
+        avg = t_changep / count
+        # Increase/ wrong
+        increase = max (Change)
+        idate = Date[Change.index(increase)]
+        # Decrease / wrong
+        decrease = min (Change)
+        ddate = Date[Change.index(decrease)]
 
+#print (f_profit)
+#print (Change)
         
 print ("Financial Analysis")
 print ("----------------------------\n")
 print ("Total Months: " + str(count))
 print ("Total: $" + str(total))
-print ("Average Change: $")
-print ("Greatest Increase in Profits: ")
-print ("Greatest Decrease in Profits: ")
+print ("Average Change: $" + str(avg))
+print ("Greatest Increase in Profits: " + str(idate) + " " + str(increase))
+print ("Greatest Decrease in Profits: " + str(ddate) + " " + str(decrease))
