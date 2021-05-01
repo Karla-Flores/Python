@@ -27,6 +27,8 @@ with open(csvpath) as csvfile:
         
     #V ariables
     count = 0
+    total = 0
+    i_profit = 0
 
     # Read each row of data after the header
     for row in csvreader:
@@ -37,20 +39,20 @@ with open(csvpath) as csvfile:
         # Storage Date in list
         Date.append(str(row[0]))
         # Sum of profit & losses
-        Total = sum (Profit)
-        # Average of profit & losses #Obs it is average of change not only average
-        Sum2 = 0
-        for P in Profit:
-            Sum2 = Sum2 + P
-            Average = Sum2 / len(Profit)
-    #print (Profit)
-    #print (Date)
-    #print (Total)
-    #print (Average)
+        total = total + int(row[1])
+        # Average of change
+        f_profit = int(row[1])
+        m_change = f_profit - i_profit
+        Change.append(m_change)
+print (Change)
+print (f_profit)
+print (m_change)
 
         
 print ("Financial Analysis")
 print ("----------------------------\n")
 print ("Total Months: " + str(count))
-print ("Total: $" + str(Total))
-print ("Average Change: $" + str(Average) )
+print ("Total: $" + str(total))
+print ("Average Change: $")
+print ("Greatest Increase in Profits: ")
+print ("Greatest Decrease in Profits: ")
