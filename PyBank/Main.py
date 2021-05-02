@@ -23,45 +23,54 @@ with open(csvpath) as csvfile:
     # Lists for storing
     Profit = []
     Change = []
-    Date = []
+    Months = []
         
-    #V ariables
+    #Variables
+    # Total of months
     count = 0
+    # Total sum of profit / losses
     total = 0
-    i_profit = 0
-    t_changep = 0
+    # Last month profit / losses
+    lmonth_profit = 0
+    # Actual month profit / losses
+    amonth_profit = 0
+    # Net value profit / losses
+    net_profit = 0
+    
 
+    
     # Read each row of data after the header
     for row in csvreader:
         # Counts of months in csvreader
         count = count + 1
-        # Storage Profit in list
-        Profit.append(int(row[1]))
-        # Storage Date in list
-        Date.append(str(row[0]))
-        # Sum of profit & losses
-        total = total + int(row[1])
-        # Last profit value
-        f_profit = int(row[1])
-        # Average of change / wrong
-        m_change = f_profit - i_profit
-        Change.append(m_change)
-        t_changep = t_changep + m_change
-        avg = t_changep / count
-        # Increase/ wrong
-        increase = max (Change)
-        idate = Date[Change.index(increase)]
-        # Decrease / wrong
-        decrease = min (Change)
-        ddate = Date[Change.index(decrease)]
 
-#print (f_profit)
-#print (Change)
-        
+        amonth_profit = int(row[1])
+        net_profit= amonth_profit + 1
+        if (count== 1):
+            # Define last month to be the actual one
+            lmonth_profit = amonth_profit
+            continue
+        else:
+            # Calculate profit / losses change
+            c_profit = amonth_profit - lmonth_profit
+            
+            # Add change profit to list Months
+            Months.append(row[0])
+
+            # Add profit / losses change to a list Profit
+            Profit.append(c_profit)
+
+            # Now current month will be the previous one
+            lmonth_profit = amonth_profit
+
+#
+sump = sum(Profit)
+Avg = round(sump/(count - 1),2)
+                
 print ("Financial Analysis")
 print ("----------------------------\n")
 print ("Total Months: " + str(count))
-print ("Total: $" + str(total))
-print ("Average Change: $" + str(avg))
-print ("Greatest Increase in Profits: " + str(idate) + " " + str(increase))
-print ("Greatest Decrease in Profits: " + str(ddate) + " " + str(decrease))
+print ("Total: $" + str(net_profit))
+print ("Average Change: $" + str(Avg))
+print ("Greatest Increase in Profits: ")
+print ("Greatest Decrease in Profits: ")
