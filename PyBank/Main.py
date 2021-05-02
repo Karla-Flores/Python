@@ -1,25 +1,16 @@
-# First we'll import the os module and create file paths across operating systems
 import os
-
-# Module for reading CSV files
 import csv
-csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Resources/budget_data.csv')
-
-# Improved Reading using CSV module
+csvpath = os.path.join("/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Resources/budget_data.csv")
 
 with open(csvpath) as csvfile:
 
-    # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
 
     print(csvreader)
 
-    # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader,None)
     print(f"CSV Header: {csv_header}")
 
-
-        
     # Lists for storing
     Profit = []
     Change = []
@@ -37,10 +28,6 @@ with open(csvpath) as csvfile:
     amonth_profit = 0
     # Net value profit / losses
     net_profit = 0
-    
-     
-    
-
     
     # Read each row of data after the header
     for row in csvreader:
@@ -88,7 +75,7 @@ decrese_date = Months[decrease_index]
 print ("Financial Analysis")
 print ("---------------------------------------------------\n")
 print ("Total Months: " + str(count))
-print ("Total: $" + str(total))
-print ("Average Change: $" + str(Avg))
+print ("Total: $ " + str(total))
+print ("Average Change: $ " + str(Avg))
 print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
 print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
