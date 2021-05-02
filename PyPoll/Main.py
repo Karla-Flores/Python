@@ -5,8 +5,9 @@ import os
 import csv
 csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyPoll/Resources/election_data.csv')
 
-# Improved Reading using CSV module
+count = 0
 
+# Improved Reading using CSV module
 with open(csvpath) as csvfile:
 
     # CSV reader specifies delimiter and variable that holds contents
@@ -20,4 +21,6 @@ with open(csvpath) as csvfile:
 
     # Read each row of data after the header
     for row in csvreader:
-        print(row)
+        #Count of votes
+        count = count + 1
+print (count)
