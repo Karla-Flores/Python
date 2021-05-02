@@ -15,7 +15,7 @@ with open(csvpath) as csvfile:
     print(csvreader)
 
     # Read the header row first (skip this step if there is now header)
-    csv_header = next(csvreader)
+    csv_header = next(csvreader,None)
     print(f"CSV Header: {csv_header}")
 
 
@@ -24,17 +24,20 @@ with open(csvpath) as csvfile:
     Profit = []
     Change = []
     Months = []
+    Total = []
         
     #Variables
     # Total of months
     count = 0
+    # Sum profit / losses
+    total = 0
     # Last month profit / losses
     lmonth_profit = 0
     # Actual month profit / losses
     amonth_profit = 0
     # Net value profit / losses
     net_profit = 0
-    total = 0
+    
      
     
 
@@ -43,9 +46,12 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         # Counts of months in csvreader
         count = count + 1
+        #
+        Total.append(int(row[1]))
+        total = sum(Total)
+        # Actual month has the value of Feb 2017
         amonth_profit = int(row[1])
 
-        
         # Net value profit / losses
         net_profit= amonth_profit + 1
         # First part of the average
@@ -80,9 +86,9 @@ decrease_index = Profit.index(decrease)
 decrese_date = Months[decrease_index]
 
 print ("Financial Analysis")
-print ("----------------------------\n")
+print ("---------------------------------------------------\n")
 print ("Total Months: " + str(count))
-print ("Total: $" + str(ppl))
+print ("Total: $" + str(total))
 print ("Average Change: $" + str(Avg))
 print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
 print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
