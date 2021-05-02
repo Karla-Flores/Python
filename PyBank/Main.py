@@ -34,6 +34,8 @@ with open(csvpath) as csvfile:
     amonth_profit = 0
     # Net value profit / losses
     net_profit = 0
+    total = 0
+     
     
 
     
@@ -41,12 +43,13 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         # Counts of months in csvreader
         count = count + 1
-
         amonth_profit = int(row[1])
 
+        
         # Net value profit / losses
         net_profit= amonth_profit + 1
-        if (count== 1):
+        # First part of the average
+        if (count == 1):
             # Define last month to be the actual one
             lmonth_profit = amonth_profit
             continue
@@ -79,7 +82,7 @@ decrese_date = Months[decrease_index]
 print ("Financial Analysis")
 print ("----------------------------\n")
 print ("Total Months: " + str(count))
-print ("Total: $" + str(net_profit))
+print ("Total: $" + str(ppl))
 print ("Average Change: $" + str(Avg))
 print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
 print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
