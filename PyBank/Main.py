@@ -28,8 +28,6 @@ with open(csvpath) as csvfile:
     #Variables
     # Total of months
     count = 0
-    # Total sum of profit / losses
-    total = 0
     # Last month profit / losses
     lmonth_profit = 0
     # Actual month profit / losses
@@ -45,6 +43,8 @@ with open(csvpath) as csvfile:
         count = count + 1
 
         amonth_profit = int(row[1])
+
+        # Net value profit / losses
         net_profit= amonth_profit + 1
         if (count== 1):
             # Define last month to be the actual one
@@ -63,14 +63,23 @@ with open(csvpath) as csvfile:
             # Now current month will be the previous one
             lmonth_profit = amonth_profit
 
-#
+# Average of change - Final result
 sump = sum(Profit)
 Avg = round(sump/(count - 1),2)
-                
+
+#Greatest Increase in Profits / Date
+increase = max (Profit)
+increase_index = Profit.index(increase)
+increse_date = Months[increase_index]
+#Greatest Decrease in Profits / Date
+decrease = min(Profit)
+decrease_index = Profit.index(decrease)
+decrese_date = Months[decrease_index]
+
 print ("Financial Analysis")
 print ("----------------------------\n")
 print ("Total Months: " + str(count))
 print ("Total: $" + str(net_profit))
 print ("Average Change: $" + str(Avg))
-print ("Greatest Increase in Profits: ")
-print ("Greatest Decrease in Profits: ")
+print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
+print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
