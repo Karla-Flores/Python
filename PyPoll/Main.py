@@ -6,8 +6,10 @@ import csv
 csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyPoll/Resources/election_data.csv')
 
 
-# Lists
+# SET
 Candidate = []
+# LIST
+c_candidate = []
 # Variable
 count = 0
 
@@ -27,7 +29,9 @@ with open(csvpath) as csvfile:
         #Count of votes
         count = count + 1
         Candidate.append(row[2])
-        # define how to manage candidates as a set (unique members) or tupple(duplicate members)?
+        # Loop Candidate as a set in order to not allow duplicates
+    for x in set(Candidate):
+        c_candidate.append(x)
         # chooose set for unique candidate
         # make a list of unique candidate
         
@@ -38,4 +42,4 @@ print ("Total Votes: " + str(count))
 print ("-------------------------\n")
 print ("-------------------------\n")
 print ("-------------------------\n")
-#print (Candidate)
+print (type(c_candidate))
