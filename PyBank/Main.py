@@ -1,6 +1,6 @@
 import os
 import csv
-csvpath = os.path.join(""/Users/karlaflores/Desktop/Git/Python----Challenge/"PyBank/Resources/budget_data.csv")
+csvpath = os.path.join("/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Resources/budget_data.csv")
 
 with open(csvpath) as csvfile:
 
