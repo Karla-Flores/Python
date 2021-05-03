@@ -9,7 +9,7 @@ with open(csvpath) as csvfile:
     print(csvreader)
 
     csv_header = next(csvreader,None)
-    print(f"CSV Header: {csv_header}")
+    #print(f"CSV Header: {csv_header}")
 
     # Lists for storing
     Profit = []
@@ -36,9 +36,8 @@ with open(csvpath) as csvfile:
         #
         Total.append(int(row[1]))
         total = sum(Total)
-        # Actual month has the value of Feb 2017
-        amonth_profit = int(row[1])
-
+        # Actual month
+        amonth_profit = int(row[1])    
         # Net value profit / losses
         net_profit= amonth_profit + 1
         # First part of the average
@@ -79,3 +78,4 @@ print ("Total: $ " + str(total))
 print ("Average Change: $ " + str(Avg))
 print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
 print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
+print (type(row[0]))
