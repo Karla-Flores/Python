@@ -1,6 +1,6 @@
 import os
 import csv
-csvpath = os.path.join("/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Resources/budget_data.csv")
+csvpath = os.path.join(""/Users/karlaflores/Desktop/Git/Python----Challenge/"PyBank/Resources/budget_data.csv")
 
 with open(csvpath) as csvfile:
 
@@ -78,4 +78,3 @@ print ("Total: $ " + str(total))
 print ("Average Change: $ " + str(Avg))
 print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
 print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
-print (type(row[0]))
