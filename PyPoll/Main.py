@@ -37,7 +37,7 @@ with open(csvpath) as csvfile:
         c_candidate.append(x)
         # Count total of votes for each candidate
         countvotes = Candidate.count(x)
-        #countvotes2 = sorted(countvotes)
+        countvotes2 = sorted(countvotes)
         CountVotes.append(countvotes)
         # Create a new variable for %
         pervotes = ((countvotes/count)*100)
