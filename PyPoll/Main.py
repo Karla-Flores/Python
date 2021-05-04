@@ -34,7 +34,10 @@ with open(csvpath) as csvfile:
         c_candidate.append(x)
         # Count total of votes for each candidate
         countvotes = Candidate.count(x)
+        # Create a new variable for %
+        pervotes = (countvotes/count)*100
         
+
 
         
 
@@ -42,6 +45,10 @@ print ("Election Results")
 print ("-------------------------\n")
 print ("Total Votes: " + str(count))
 print ("-------------------------\n")
+print ("Khan: ")
+print ("Correy: ")
+print ("Li: ")
+print ("O'Tooley: ")
 print ("-------------------------\n")
+print ("Winner: ")
 print ("-------------------------\n")
-print (countvotes)
