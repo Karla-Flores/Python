@@ -37,11 +37,9 @@ with open(csvpath) as csvfile:
         c_candidate.append(x)
         # Count total of votes for each candidate
         countvotes = Candidate.count(x)
-        countvotes2 = sorted(countvotes)
         CountVotes.append(countvotes)
         # Create a new variable for %
         pervotes = ((countvotes/count)*100)
-       #pervotes2 = sorted(pervotes)
         PerVotes.append(pervotes)
 winner_max = max(CountVotes)
 winner = c_candidate[CountVotes.index(winner_max)]      
@@ -50,10 +48,12 @@ print ("Election Results")
 print ("-------------------------")
 print ("Total Votes: " + str(count))
 print ("-------------------------")
+# Create Output to sort list then reverse it and print it
+#Output = sorted(PerVotes, key = lambda x:float(x))
+#Output.sort(reverse= True)
+
 for x in range(len(c_candidate)):
     print (c_candidate[x]+ ": "+ str(PerVotes[x])+ "% ("+ str(CountVotes[x])+ ")\n")
 print ("-------------------------")
-print ("Winner: "+ str(winner))
+print ("The winner is: " + winner)
 print ("-------------------------")
-print(type(countvotes))
-print(type(pervotes))

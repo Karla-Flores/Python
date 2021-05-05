@@ -13,7 +13,6 @@ with open(csvpath) as csvfile:
 
     # Lists for storing
     Profit = []
-    Change = []
     Months = []
     Total = []
         
@@ -26,20 +25,17 @@ with open(csvpath) as csvfile:
     lmonth_profit = 0
     # Actual month profit / losses
     amonth_profit = 0
-    # Net value profit / losses
-    net_profit = 0
+
     
     # Read each row of data after the header
     for row in csvreader:
         # Counts of months in csvreader
         count = count + 1
-        #
+        # Sum profit and losses
         Total.append(int(row[1]))
-        total = sum(Total)
+        total = sum(Total)  
         # Actual month
-        amonth_profit = int(row[1])    
-        # Net value profit / losses
-        net_profit= amonth_profit + 1
+        amonth_profit = int(row[1])
         # First part of the average
         if (count == 1):
             # Define last month to be the actual one
@@ -73,8 +69,8 @@ decrese_date = Months[decrease_index]
 
 print ("Financial Analysis")
 print ("---------------------------------------------------\n")
-print ("Total Months: " + str(count))
-print ("Total: $ " + str(total))
-print ("Average Change: $ " + str(Avg))
-print ("Greatest Increase in Profits: " + str(increse_date) + " " + "($"+ str(increase)+")")
-print ("Greatest Decrease in Profits: " + str(decrese_date) + " " + "($"+ str(decrease)+")")
+print (f"Total Months: {count}")
+print (f"Total: $ {total: ,}")
+print (f"Average Change: $ {Avg: ,} ")
+print (f"Greatest Increase in Profits: {increse_date}  ({increase:,})")
+print (f"Greatest Decrease in Profits: {decrese_date}  ({decrease:,})")
