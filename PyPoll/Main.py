@@ -42,18 +42,37 @@ with open(csvpath) as csvfile:
         pervotes = ((countvotes/count)*100)
         PerVotes.append(pervotes)
 winner_max = max(CountVotes)
-winner = c_candidate[CountVotes.index(winner_max)]      
+winner = c_candidate[CountVotes.index(winner_max)]   
+#Round float to 3 decimals   
+f_Pervotes = ['%.3f' % elem for elem in PerVotes]
 
-print ("Election Results")
-print ("-------------------------")
-print ("Total Votes: " + str(count))
-print ("-------------------------")
+print (f"Election Results")
+print (f"-------------------------")
+print (f"Total Votes: {count}")
+print (f"-------------------------")
 # Create Output to sort list then reverse it and print it
 #Output = sorted(PerVotes, key = lambda x:float(x))
 #Output.sort(reverse= False)
 #print(Output)
 for x in range(len(c_candidate)):
-    print (c_candidate[x]+ ": "+ str(PerVotes[x])+ "% ("+ str(CountVotes[x])+ ")\n")
+    print (f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
+
 print ("-------------------------")
-print ("The winner is: " + winner)
+print (f"The winner is: {winner}")
 print ("-------------------------")
+
+#Export TXT file
+PollResuls_file = os.path.join("/Users/karlaflores/Desktop/Git/Python----Challenge/PyPoll/Output/PollResuls_txt")
+with open(PollResuls_file, "w") as outfile:
+#Outfile each line to print and use \n to go to other row
+    outfile.write(f"Election Results\n")
+    outfile.write(f"---------------------------------------------------\n")
+    outfile.write(f"Total Votes: {count}\n")
+    outfile.write(f"---------------------------------------------------\n")
+    #find out
+    #outfile.write
+    outfile.write(f"{c_candidate[x]} : {(PerVotes[x])}  ({CountVotes[x]})\n")
+    outfile.write(f"---------------------------------------------------\n")
+    outfile.write(f"The winner is: {winner}\n")
+    outfile.write(f"---------------------------------------------------\n")
+    
