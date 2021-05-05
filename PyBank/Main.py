@@ -78,6 +78,7 @@ print (f"Greatest Decrease in Profits: {decrese_date}  (${decrease:,})")
 #Export TXT file
 b_file = os.path.join("/Users/karlaflores/Desktop/Git/Python----Challenge/PyBank/Output/budget_data.txt")
 with open(b_file, "w") as outfile:
+#Outfile each line to print and use \n to go to other row
     outfile.write("Financial Analysis\n")
     outfile.write("---------------------------------------------------\n")
     outfile.write(f"Total Months: {count}\n")
