@@ -24,7 +24,7 @@ with open(csvpath) as csvfile:
     print(csvreader)
 
     # Read the header row first (skip this step if there is now header)
-    csv_header = next(csvreader, None)
+    csv_header = next(csvreader,None)
     #print(f"CSV Header: {csv_header}")
 
     # Read each row of data after the header
@@ -49,9 +49,9 @@ print ("-------------------------")
 print ("Total Votes: " + str(count))
 print ("-------------------------")
 # Create Output to sort list then reverse it and print it
-#Output = sorted(PerVotes, key = lambda x:float(x))
-#Output.sort(reverse= True)
-
+Output = sorted(PerVotes, key = lambda x:float(x))
+Output.sort(reverse= False)
+#print(Output)
 for x in range(len(c_candidate)):
     print (c_candidate[x]+ ": "+ str(PerVotes[x])+ "% ("+ str(CountVotes[x])+ ")\n")
 print ("-------------------------")
