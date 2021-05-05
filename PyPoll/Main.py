@@ -49,8 +49,8 @@ print ("-------------------------")
 print ("Total Votes: " + str(count))
 print ("-------------------------")
 # Create Output to sort list then reverse it and print it
-Output = sorted(PerVotes, key = lambda x:float(x))
-Output.sort(reverse= False)
+#Output = sorted(PerVotes, key = lambda x:float(x))
+#Output.sort(reverse= False)
 #print(Output)
 for x in range(len(c_candidate)):
     print (c_candidate[x]+ ": "+ str(PerVotes[x])+ "% ("+ str(CountVotes[x])+ ")\n")
