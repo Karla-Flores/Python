@@ -11,6 +11,7 @@ Candidate = []
 c_candidate = []
 CountVotes = []
 PerVotes = []
+zipped = []
 # Variable
 count = 0
 countvotes = 0
@@ -46,17 +47,26 @@ winner = c_candidate[CountVotes.index(winner_max)]
 #Round float to 3 decimals   
 f_Pervotes = ['%.3f' % elem for elem in PerVotes]
 
+#review
+#zipped = zip (c_candidate, f_Pervotes, CountVotes)
+#tuple(zipped)
+# zipped = zip (c_candidate, Output, Output2)
+# Create Output to sort list then reverse it and print it
+# Output = sorted(f_Pervotes, key = lambda x:float(x))
+# Output.sort(reverse= True)
+#print (Output)
+# Output2 = sorted(CountVotes, key = lambda x:int(x))
+# Output2.sort(reverse= True)
+# #print (Output2)
+#print(tuple(zipped))
+
+#Print result
 print (f"Election Results")
 print (f"-------------------------")
 print (f"Total Votes: {count}")
 print (f"-------------------------")
-# Create Output to sort list then reverse it and print it
-#Output = sorted(PerVotes, key = lambda x:float(x))
-#Output.sort(reverse= False)
-#print(Output)
 for x in range(len(c_candidate)):
-    print (f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
-
+   print (f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
 print ("-------------------------")
 print (f"The winner is: {winner}")
 print ("-------------------------")
