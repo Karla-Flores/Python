@@ -69,9 +69,8 @@ with open(PollResuls_file, "w") as outfile:
     outfile.write(f"---------------------------------------------------\n")
     outfile.write(f"Total Votes: {count}\n")
     outfile.write(f"---------------------------------------------------\n")
-    #find out
-    #outfile.write
-    outfile.write(f"{c_candidate[x]} : {(PerVotes[x])}  ({CountVotes[x]})\n")
+    for x in range(len(c_candidate)):
+        outfile.write(f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
     outfile.write(f"---------------------------------------------------\n")
     outfile.write(f"The winner is: {winner}\n")
     outfile.write(f"---------------------------------------------------\n")
