@@ -44,14 +44,15 @@ with open(csvpath) as csvfile:
         PerVotes.append(pervotes)
 winner_max = max(CountVotes)
 winner = c_candidate[CountVotes.index(winner_max)]   
-#Round float to 3 decimals   
-f_Pervotes = ['%.3f' % elem for elem in PerVotes]
 
 #review
-#zipped = zip (c_candidate, f_Pervotes, CountVotes)
+# zipped = zip (c_candidate, f_Pervotes, CountVotes)
+# zipped = set(zipped)
+# def sort_zipped(zipped):
+#     return zipped [2]
+# print (set(zipped))
 #tuple(zipped)
 # zipped = zip (c_candidate, Output, Output2)
-# Create Output to sort list then reverse it and print it
 # Output = sorted(f_Pervotes, key = lambda x:float(x))
 # Output.sort(reverse= True)
 #print (Output)
@@ -63,10 +64,10 @@ f_Pervotes = ['%.3f' % elem for elem in PerVotes]
 #Print result
 print (f"Election Results")
 print (f"-------------------------")
-print (f"Total Votes: {count}")
+print (f"Total Votes: {count:,}")
 print (f"-------------------------")
 for x in range(len(c_candidate)):
-   print (f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
+   print (f"{c_candidate[x]} : {round((PerVotes[x]),2)}%  ({CountVotes[x]:,})\n")
 print ("-------------------------")
 print (f"The winner is: {winner}")
 print ("-------------------------")
@@ -77,10 +78,10 @@ with open(PollResuls_file, "w") as outfile:
 #Outfile each line to print and use \n to go to other row
     outfile.write(f"Election Results\n")
     outfile.write(f"---------------------------------------------------\n")
-    outfile.write(f"Total Votes: {count}\n")
+    outfile.write(f"Total Votes: {count:,}\n")
     outfile.write(f"---------------------------------------------------\n")
     for x in range(len(c_candidate)):
-        outfile.write(f"{c_candidate[x]} : {(f_Pervotes[x])}%  ({CountVotes[x]})\n")
+        outfile.write(f"{c_candidate[x]} : {round((PerVotes[x]),2)}%  ({CountVotes[x]:,})\n")
     outfile.write(f"---------------------------------------------------\n")
     outfile.write(f"The winner is: {winner}\n")
     outfile.write(f"---------------------------------------------------\n")
