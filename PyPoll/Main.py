@@ -5,13 +5,12 @@ import os
 import csv
 csvpath = os.path.join('/Users/karlaflores/Desktop/Git/Python----Challenge/PyPoll/Resources/election_data.csv')
 
-
 # List
 Candidate = []
 c_candidate = []
 CountVotes = []
 PerVotes = []
-zipped = []
+
 # Variable
 count = 0
 countvotes = 0
@@ -45,21 +44,6 @@ with open(csvpath) as csvfile:
 winner_max = max(CountVotes)
 winner = c_candidate[CountVotes.index(winner_max)]   
 
-#review
-# zipped = zip (c_candidate, f_Pervotes, CountVotes)
-# zipped = set(zipped)
-# def sort_zipped(zipped):
-#     return zipped [2]
-# print (set(zipped))
-#tuple(zipped)
-# zipped = zip (c_candidate, Output, Output2)
-# Output = sorted(f_Pervotes, key = lambda x:float(x))
-# Output.sort(reverse= True)
-#print (Output)
-# Output2 = sorted(CountVotes, key = lambda x:int(x))
-# Output2.sort(reverse= True)
-# #print (Output2)
-#print(tuple(zipped))
 
 #Print result
 print (f"Election Results")
@@ -85,4 +69,3 @@ with open(PollResuls_file, "w") as outfile:
     outfile.write(f"---------------------------------------------------\n")
     outfile.write(f"The winner is: {winner}\n")
     outfile.write(f"---------------------------------------------------\n")
-    
